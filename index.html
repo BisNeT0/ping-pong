@@ -47,7 +47,10 @@
 
             canvasCtx.fillRect(window.innerWidth - w - 10/ 2-lineWidth/2 ,200,w,200)
 
-            
+            //desenhando a bola
+            canvasCtx.beginPath()
+            canvasCtx.arc(200,300,20,0,2*Math.PI,false)
+            canvasCtx.fill()
 
 
         }
