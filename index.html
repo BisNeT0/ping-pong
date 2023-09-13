@@ -21,7 +21,6 @@
         const canvasEl = document.querySelector("canvas"),
         canvasCtx = canvasEl.getContext("2d")
         
-        const lineWidth = 15
         
         const field = {
             w:window.innerWidth,
@@ -29,33 +28,35 @@
             draw: function(){
             //desenhando o campo
             canvasCtx.fillStyle = "#286047"
-            canvasCtx.fillRect(0,0,window.innerWidth,window.innerHeight)
+            canvasCtx.fillRect(0,0,this.w,this.h)
             }
+        }
 
+        const line = {
+            w:15,
+            h:field.h,
+            
+            draw: function(){
+            //desenhando a linha central
+            canvasCtx.fillStyle = "#ffffff"
+            canvasCtx.fillRect(field.w /2 -this.w/2,0,this.w,this.h)
+            }
         }
 
         function setup(){
-            canvasEl.width = canvasCtx.width = window.innerWidth
-            canvasEl.height = canvasCtx.height = window.innerHeight
+            canvasEl.width = canvasCtx.width = field.w
+            canvasEl.height = canvasCtx.height = field.h
         }
         function draw(){
-           
             field.draw()
-            //desenhando a linha central
-            canvasCtx.fillStyle = "#ffffff"
-            const x = window.innerWidth / 2 - lineWidth / 2
-            const y = 0
-            const w = lineWidth
-            const h = window.innerHeight
-            canvasCtx.fillRect(x,y,w,h)
+            line.draw()
 
+            
             //desenhando a raquete esquerda
             canvasCtx.fillRect(10,120,w,200)
-            
             //desenhando a raquete direita
-
-            canvasCtx.fillRect(window.innerWidth - w - 10/ 2-lineWidth/2 ,200,w,200)
-
+            canvasCtx.fillRect(field.w - this.w - 10/ 2-this.w/2 ,200,w,200)
+            
             //desenhando a bola
             canvasCtx.beginPath()
             canvasCtx.arc(200,300,20,0,2*Math.PI,false)
