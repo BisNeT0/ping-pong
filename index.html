@@ -23,15 +23,24 @@
         
         const lineWidth = 15
         
+        const field = {
+            w:window.innerWidth,
+            h:window.innerHeight,
+            draw: function(){
+            //desenhando o campo
+            canvasCtx.fillStyle = "#286047"
+            canvasCtx.fillRect(0,0,window.innerWidth,window.innerHeight)
+            }
+
+        }
+
         function setup(){
             canvasEl.width = canvasCtx.width = window.innerWidth
             canvasEl.height = canvasCtx.height = window.innerHeight
         }
         function draw(){
-            //desenhando o campo
-            canvasCtx.fillStyle = "#286047"
-            canvasCtx.fillRect(0,0,window.innerWidth,window.innerHeight)
-            
+           
+            field.draw()
             //desenhando a linha central
             canvasCtx.fillStyle = "#ffffff"
             const x = window.innerWidth / 2 - lineWidth / 2
@@ -59,6 +68,8 @@
             canvasCtx.fillStyle = "#01341D"
             canvasCtx.fillText("3",window.innerWidth/4,50)
             canvasCtx.fillText("5",window.innerWidth/4 + innerWidth/2,50)
+
+
         }
         
         setup()
