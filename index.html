@@ -123,10 +123,13 @@
             _reverseX: function(){ // 1 * -1 = -1 ou -1 * -1 = 1
                 this.directionX *= -1
             },
+            _speedUp: function(){
+                this.speed+=3
+            },
             _pointUp: function(){
                 this.x = field.w / 2
                 this.y = field.h / 2
-
+                this._speedUp()
             },
             _move: function(){
                 this.x +=this.directionX*this.speed
